@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Oaxaqueña – Distribuidora de Productos Auténticos</title>
+<meta name="description" content="Distribuidora de productos mexicanos y oaxaqueños auténticos. Múltiples puntos de venta, envío a domicilio y plataforma en línea.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --negro: #1a1230;
+    --rosa: #e8206a;
+    --rosa-oscuro: #b5185a;
+    --turquesa: #00b8c8;
+    --turquesa-oscuro: #0090a0;
+    --naranja: #ff6b1a;
+    --amarillo: #ffd700;
+    --amarillo-claro: #ffe657;
+    --verde: #00c07a;
+    --morado: #7c3aed;
+    --crema: #fff8f0;
+    --crema-oscuro: #ffe8d6;
+    --blanco: #ffffff;
+    --texto: #1a1230;
+    --texto-muted: #4a3060;
+    --radio: 4px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--blanco);
+    color: var(--texto);
+    overflow-x: hidden;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--negro);
+    border-bottom: 3px solid var(--amarillo);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: var(--amarillo);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--crema); font-weight: 400; font-size: 13px; display: block; letter-spacing: 0.15em; text-transform: uppercase; margin-top: -4px; }
+
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: var(--crema); font-size: 14px; text-decoration: none; letter-spacing: 0.05em; opacity: 0.85; transition: opacity 0.2s, color 0.2s; }
+  .nav-links a:hover { opacity: 1; color: var(--turquesa); }
+
+  .nav-cta {
+    background: var(--rosa);
+    color: var(--blanco);
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background 0.2s;
+    border-radius: 24px;
+  }
+  .nav-cta:hover { background: var(--rosa-oscuro); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--negro);
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 64px;
+  }
+
+  .hero-texture {
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,215,0,0.05) 39px, rgba(255,215,0,0.05) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(0,184,200,0.04) 39px, rgba(0,184,200,0.04) 40px);
+    pointer-events: none;
+  }
+
+  .hero-accent {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 45%;
+    background: linear-gradient(135deg, var(--rosa-oscuro) 0%, var(--rosa) 40%, var(--naranja) 100%);
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  .hero-pattern {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 45%;
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.07) 0px, rgba(255,255,255,0.07) 1px,
+      transparent 1px, transparent 12px
+    );
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,184,200,0.15);
+    border: 1px solid rgba(0,184,200,0.4);
+    color: var(--turquesa);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+  }
+  .hero-badge::before { content: '●'; font-size: 8px; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 900;
+    color: var(--crema);
+    line-height: 1.0;
+    margin-bottom: 24px;
+  }
+  .hero-title em {
+    color: var(--amarillo);
+    font-style: italic;
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: rgba(255,248,240,0.75);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 420px;
+  }
+
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--rosa);
+    color: var(--blanco);
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid var(--rosa);
+    border-radius: 32px;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: transparent; color: var(--rosa); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--crema);
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid rgba(255,248,240,0.35);
+    border-radius: 32px;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--turquesa); color: var(--turquesa); }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,215,0,0.25);
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--amarillo);
+    display: block;
+  }
+  .stat-label { font-size: 12px; color: rgba(255,248,240,0.5); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-card {
+    background: rgba(255,248,240,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 24px 28px;
+    border-radius: 16px;
+    backdrop-filter: blur(4px);
+    border-left: 4px solid var(--turquesa);
+  }
+  .hero-card:nth-child(2) { border-left-color: var(--amarillo); }
+  .hero-card:nth-child(3) { border-left-color: var(--naranja); }
+  .hero-card-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+  .hero-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: var(--crema);
+    margin-bottom: 5px;
+  }
+  .hero-card p { font-size: 13px; color: rgba(255,248,240,0.6); line-height: 1.6; }
+  .hero-card .tag {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--turquesa);
+    border-bottom: 1px solid var(--turquesa);
+    padding-bottom: 2px;
+  }
+
+  /* ── SECCIÓN: DISTRIBUCIÓN ── */
+  .section-distrib {
+    background: var(--blanco);
+    padding: 100px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .section-distrib::before {
+    content: 'DISTRIBUCIÓN';
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+    font-size: 180px;
+    font-weight: 900;
+    color: rgba(26,18,48,0.04);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  .section-header { text-align: center; margin-bottom: 60px; }
+  .section-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--rosa);
+    margin-bottom: 16px;
+    display: block;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    color: var(--negro);
+    line-height: 1.15;
+  }
+  .section-title em { color: var(--turquesa); font-style: italic; }
+  .section-desc {
+    margin-top: 16px;
+    font-size: 16px;
+    color: var(--texto-muted);
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  /* Flujo visual */
+  .flujo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+    margin-bottom: 80px;
+  }
+  .flujo::after {
+    content: '';
+    position: absolute;
+    top: 52px;
+    left: 12.5%;
+    right: 12.5%;
+    height: 3px;
+    background: repeating-linear-gradient(90deg, var(--turquesa) 0, var(--turquesa) 12px, transparent 12px, transparent 20px);
+  }
+  .flujo-step {
+    text-align: center;
+    padding: 32px 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .flujo-num {
+    width: 60px; height: 60px;
+    background: var(--negro);
+    border: 3px solid var(--turquesa);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--turquesa);
+  }
+  .flujo-step:nth-child(2) .flujo-num { border-color: var(--amarillo); color: var(--amarillo); }
+  .flujo-step:nth-child(3) .flujo-num { border-color: var(--naranja); color: var(--naranja); }
+  .flujo-step:nth-child(4) .flujo-num { border-color: var(--rosa); color: var(--rosa); }
+  .flujo-step h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--negro);
+    margin-bottom: 8px;
+  }
+  .flujo-step p { font-size: 13px; color: var(--texto-muted); line-height: 1.6; }
+
+  /* Puntos de venta */
+  .puntos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    background: #e8e0f8;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .punto-card {
+    background: var(--blanco);
+    padding: 36px 32px;
+    position: relative;
+    border-top: 4px solid transparent;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  .punto-card:hover { border-top-color: var(--turquesa); }
+  .punto-card.featured { border-top-color: var(--amarillo); }
+  .punto-tag {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--blanco);
+    background: var(--rosa);
+    padding: 4px 12px;
+    display: inline-block;
+    margin-bottom: 16px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .punto-card.featured .punto-tag { background: var(--naranja); }
+  .punto-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--negro);
+    margin-bottom: 8px;
+  }
+  .punto-card .address { font-size: 13px; color: var(--texto-muted); line-height: 1.6; margin-bottom: 16px; }
+  .punto-services { display: flex; flex-wrap: wrap; gap: 6px; }
+  .service-pill {
+    font-size: 11px;
+    background: #f0f8ff;
+    color: var(--turquesa-oscuro);
+    padding: 4px 10px;
+    border: 1px solid rgba(0,184,200,0.2);
+    border-radius: 12px;
+  }
+  .punto-card.featured .service-pill { background: rgba(255,107,26,0.08); border-color: rgba(255,107,26,0.25); color: var(--naranja); }
+
+  /* ── PRODUCTOS DESTACADOS ── */
+  .section-productos {
+    background: var(--negro);
+    padding: 100px 40px;
+    position: relative;
+  }
+  .section-productos .section-title { color: var(--crema); }
+  .section-productos .section-title em { color: var(--amarillo); }
+  .section-productos .section-desc { color: rgba(255,248,240,0.6); }
+  .section-productos .section-eyebrow { color: var(--turquesa); }
+
+  .productos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 60px;
+  }
+  .producto-card {
+    background: rgba(255,248,240,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+    cursor: pointer;
+    position: relative;
+  }
+  .producto-card:hover { transform: translateY(-6px); border-color: rgba(255,215,0,0.4); }
+  .producto-img {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    background: rgba(255,215,0,0.07);
+    position: relative;
+    overflow: hidden;
+  }
+  .producto-card:nth-child(2) .producto-img { background: rgba(0,184,200,0.07); }
+  .producto-card:nth-child(3) .producto-img { background: rgba(232,32,106,0.07); }
+  .producto-card:nth-child(4) .producto-img { background: rgba(255,107,26,0.07); }
+  .producto-img::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 40px;
+    background: linear-gradient(transparent, rgba(26,18,48,0.5));
+  }
+  .producto-info { padding: 20px; }
+  .producto-cat {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--turquesa);
+    margin-bottom: 6px;
+  }
+  .producto-card:nth-child(2) .producto-cat { color: var(--turquesa); }
+  .producto-card:nth-child(3) .producto-cat { color: var(--rosa); }
+  .producto-card:nth-child(4) .producto-cat { color: var(--naranja); }
+  .producto-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: var(--crema);
+    margin-bottom: 6px;
+  }
+  .producto-desc { font-size: 12px; color: rgba(255,248,240,0.5); line-height: 1.5; }
+  .producto-badge {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: var(--amarillo);
+    color: var(--negro);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 12px;
+  }
+
+  /* ── CÓMO COMPRAR ── */
+  .section-como {
+    background: var(--crema);
+    padding: 100px 40px;
+  }
+  .section-como .section-title em { color: var(--rosa); }
+  .como-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 60px;
+  }
+  .como-options { display: flex; flex-direction: column; gap: 14px; }
+  .como-option {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 22px 24px;
+    background: var(--blanco);
+    border: 1.5px solid #e8e0f8;
+    border-radius: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+  .como-option:hover { border-color: var(--turquesa); box-shadow: 0 4px 20px rgba(0,184,200,0.1); }
+  .como-option-icon { font-size: 28px; flex-shrink: 0; }
+  .como-option h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--negro);
+    margin-bottom: 4px;
+  }
+  .como-option p { font-size: 13px; color: var(--texto-muted); line-height: 1.6; }
+  .como-option .arrow {
+    margin-left: auto;
+    font-size: 20px;
+    color: var(--turquesa);
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  .como-info { position: relative; }
+  .como-info-box {
+    background: var(--negro);
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  .como-info-box::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 160px; height: 160px;
+    background: var(--rosa);
+    border-radius: 50%;
+    opacity: 0.3;
+  }
+  .como-info-box::after {
+    content: '';
+    position: absolute;
+    bottom: -30px; left: -30px;
+    width: 120px; height: 120px;
+    background: var(--turquesa);
+    border-radius: 50%;
+    opacity: 0.2;
+  }
+  .como-info-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--crema);
+    margin-bottom: 20px;
+    line-height: 1.3;
+    position: relative;
+    z-index: 1;
+  }
+  .como-info-box h3 em { color: var(--amarillo); font-style: italic; }
+  .como-info-box p { font-size: 14px; color: rgba(255,248,240,0.7); line-height: 1.8; margin-bottom: 28px; position: relative; z-index: 1; }
+  .como-info-box .btn-primary { display: inline-block; position: relative; z-index: 1; }
+
+  .whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #25D366;
+    color: var(--blanco);
+    padding: 14px 28px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    margin-top: 16px;
+    border-radius: 32px;
+    transition: background 0.2s;
+    position: relative;
+    z-index: 1;
+  }
+  .whatsapp-btn:hover { background: #1da851; }
+
+  /* ── MAPA PUNTOS ── */
+  .section-mapa {
+    background: var(--blanco);
+    padding: 100px 40px;
+  }
+  .section-mapa .section-title em { color: var(--naranja); }
+  .mapa-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 40px;
+    margin-top: 60px;
+    align-items: start;
+  }
+  .mapa-visual {
+    background: #f0f8ff;
+    border: 2px solid rgba(0,184,200,0.2);
+    border-radius: 16px;
+    height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .mapa-placeholder {
+    text-align: center;
+    color: var(--texto-muted);
+  }
+  .mapa-placeholder .map-icon { font-size: 64px; display: block; margin-bottom: 12px; }
+  .mapa-placeholder p { font-size: 14px; }
+  .mapa-placeholder small { font-size: 11px; color: rgba(74,48,96,0.4); letter-spacing: 0.1em; }
+
+  .mapa-list { display: flex; flex-direction: column; gap: 12px; }
+  .mapa-item {
+    padding: 18px 20px;
+    background: var(--crema);
+    border: 1.5px solid #ffe8d6;
+    border-radius: 12px;
+    border-left: 4px solid var(--rosa);
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    cursor: pointer;
+    transition: border-left-color 0.2s, background 0.2s;
+  }
+  .mapa-item:hover { border-left-color: var(--turquesa); background: #f0f8ff; }
+  .mapa-num {
+    width: 32px; height: 32px;
+    background: var(--rosa);
+    color: var(--blanco);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .mapa-item h4 { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--negro); margin-bottom: 3px; }
+  .mapa-item p { font-size: 12px; color: var(--texto-muted); line-height: 1.5; }
+  .mapa-item .horario { font-size: 11px; color: var(--turquesa-oscuro); margin-top: 4px; font-weight: 500; }
+
+  /* ── CONTACTO / CTA FINAL ── */
+  .section-cta {
+    background: var(--negro);
+    padding: 80px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .section-cta::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: -80px;
+    width: 300px; height: 300px;
+    background: var(--rosa);
+    border-radius: 50%;
+    opacity: 0.12;
+  }
+  .section-cta::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; right: -60px;
+    width: 240px; height: 240px;
+    background: var(--turquesa);
+    border-radius: 50%;
+    opacity: 0.1;
+  }
+  .section-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 60px);
+    color: var(--crema);
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .section-cta h2 em { color: var(--amarillo-claro); }
+  .section-cta p { font-size: 16px; color: rgba(255,248,240,0.7); margin-bottom: 40px; max-width: 480px; margin-left: auto; margin-right: auto; position: relative; z-index: 1; line-height: 1.7; }
+  .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+  .cta-btns .btn-primary { border-color: var(--amarillo); background: var(--amarillo); color: var(--negro); }
+  .cta-btns .btn-primary:hover { background: transparent; color: var(--amarillo); }
+  .cta-btns .btn-outline { border-color: rgba(255,248,240,0.35); color: var(--crema); }
+  .cta-btns .btn-outline:hover { border-color: var(--turquesa); color: var(--turquesa); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--negro);
+    padding: 60px 40px 32px;
+    border-top: 4px solid var(--turquesa);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+  .footer-brand .brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--amarillo);
+    margin-bottom: 4px;
+  }
+  .footer-brand .brand-tag {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,248,240,0.4);
+    margin-bottom: 16px;
+    display: block;
+  }
+  .footer-brand p { font-size: 13px; color: rgba(255,248,240,0.6); line-height: 1.7; max-width: 280px; }
+
+  .footer-col h5 {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--turquesa);
+    margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul a { font-size: 13px; color: rgba(255,248,240,0.6); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--crema); }
+  .footer-col p { font-size: 13px; color: rgba(255,248,240,0.6); line-height: 1.7; }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(0,184,200,0.2);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-bottom p { font-size: 12px; color: rgba(255,248,240,0.35); }
+  .footer-bottom .netlify-badge {
+    font-size: 11px;
+    color: rgba(255,248,240,0.3);
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .netlify-dot { width: 8px; height: 8px; background: #00ad9f; border-radius: 50%; }
+
+  /* ── DIVIDER ORNAMENTAL ── */
+  .ornament {
+    text-align: center;
+    padding: 16px 0;
+    font-size: 24px;
+    color: var(--turquesa);
+    opacity: 0.4;
+    letter-spacing: 12px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hero-content { grid-template-columns: 1fr; gap: 40px; padding: 60px 20px; }
+    .hero-right { display: none; }
+    .hero-accent { width: 100%; clip-path: none; opacity: 0.12; }
+    .flujo { grid-template-columns: repeat(2, 1fr); }
+    .flujo::after { display: none; }
+    .puntos-grid { grid-template-columns: 1fr; }
+    .productos-grid { grid-template-columns: repeat(2, 1fr); }
+    .como-grid { grid-template-columns: 1fr; gap: 40px; }
+    .mapa-wrapper { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .section-distrib, .section-productos, .section-como, .section-mapa { padding: 60px 20px; }
+    .section-cta { padding: 60px 20px; }
+    footer { padding: 40px 20px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVEGACIÓN -->
+<nav>
+  <a href="#" class="nav-logo">
+    La Oaxaqueña
+    <span>Distribuidora Auténtica</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#distribucion">Distribución</a></li>
+    <li><a href="#productos">Productos</a></li>
+    <li><a href="#puntos-venta">Puntos de Venta</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="#como-comprar" class="nav-cta">Comprar Ahora</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-badge">Distribuidora Oficial</div>
+      <h1 class="hero-title">
+        Lo mejor<br>de<br>
+        <em>Oaxaca</em>
+      </h1>
+      <p class="hero-sub">
+        Productos mexicanos auténticos, ingredientes tradicionales y servicios confiables. Una distribuidora, múltiples puntos de venta cerca de ti.
+      </p>
+      <div class="hero-btns">
+        <a href="#productos" class="btn-primary">Ver Catálogo</a>
+        <a href="#puntos-venta" class="btn-outline">Puntos de Venta</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <span class="stat-num">5+</span>
+          <span class="stat-label">Puntos de Venta</span>
+        </div>
+        <div>
+          <span class="stat-num">300+</span>
+          <span class="stat-label">Productos</span>
+        </div>
+        <div>
+          <span class="stat-num">10+</span>
+          <span class="stat-label">Años en el Mercado</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card">
+        <span class="hero-card-icon">🛒</span>
+        <h3>Tienda en Línea</h3>
+        <p>Compra desde donde estés y elige el punto de entrega más cercano.</p>
+        <span class="tag">Disponible vía Shopify →</span>
+      </div>
+      <div class="hero-card">
+        <span class="hero-card-icon">📦</span>
+        <h3>Envío a Domicilio</h3>
+        <p>Paquetería nacional e internacional para que recibas en casa.</p>
+        <span class="tag">Cobertura Nacional →</span>
+      </div>
+      <div class="hero-card">
+        <span class="hero-card-icon">🤝</span>
+        <h3>Canal Mayorista</h3>
+        <p>Precios especiales para revendedores y distribuidores de zona.</p>
+        <span class="tag">Consúltanos →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISTRIBUCIÓN -->
+<section class="section-distrib" id="distribucion">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Cómo funcionamos</span>
+      <h2 class="section-title">Una distribuidora,<br><em>muchos canales</em></h2>
+      <p class="section-desc">Desde nuestra plataforma central conectamos con puntos de venta físicos y digitales para que siempre encuentres lo que necesitas.</p>
+    </div>
+
+    <div class="flujo">
+      <div class="flujo-step">
+        <div class="flujo-num">1</div>
+        <h4>Plataforma Central</h4>
+        <p>Catálogo unificado con inventario en tiempo real desde la distribuidora.</p>
+      </div>
+      <div class="flujo-step">
+        <div class="flujo-num">2</div>
+        <h4>Tienda en Línea</h4>
+        <p>Shopify conectado directamente para ventas digitales 24/7.</p>
+      </div>
+      <div class="flujo-step">
+        <div class="flujo-num">3</div>
+        <h4>Puntos de Venta</h4>
+        <p>Sucursales físicas con stock actualizado automáticamente.</p>
+      </div>
+      <div class="flujo-step">
+        <div class="flujo-num">4</div>
+        <h4>Entrega al Cliente</h4>
+        <p>Pick-up en sucursal, envío a domicilio o paquetería nacional.</p>
+      </div>
+    </div>
+
+    <div class="puntos-grid" id="puntos-venta">
+      <div class="punto-card featured">
+        <span class="punto-tag">★ Sucursal Principal</span>
+        <h3>Centro CDMX</h3>
+        <p class="address">Av. México 120, Col. Centro<br>Ciudad de México · 9am – 9pm</p>
+        <div class="punto-services">
+          <span class="service-pill">Tienda Física</span>
+          <span class="service-pill">Mayoreo</span>
+          <span class="service-pill">Envío Dinero</span>
+          <span class="service-pill">Recargas</span>
+        </div>
+      </div>
+      <div class="punto-card">
+        <span class="punto-tag">Sucursal</span>
+        <h3>Oaxaca Centro</h3>
+        <p class="address">Calle Macedonio Alcalá 45<br>Oaxaca de Juárez · 8am – 8pm</p>
+        <div class="punto-services">
+          <span class="service-pill">Tienda Física</span>
+          <span class="service-pill">Productos Frescos</span>
+          <span class="service-pill">Paquetería</span>
+        </div>
+      </div>
+      <div class="punto-card">
+        <span class="punto-tag">Sucursal</span>
+        <h3>Guadalajara</h3>
+        <p class="address">Blvd. Tlaquepaque 890<br>Guadalajara, Jal. · 9am – 8pm</p>
+        <div class="punto-services">
+          <span class="service-pill">Tienda Física</span>
+          <span class="service-pill">Envío Dinero</span>
+          <span class="service-pill">Recargas</span>
+        </div>
+      </div>
+      <div class="punto-card">
+        <span class="punto-tag">Punto Digital</span>
+        <h3>Tienda en Línea</h3>
+        <p class="address">Shopify · Envío nacional<br>Disponible 24 horas</p>
+        <div class="punto-services">
+          <span class="service-pill">Tarjeta</span>
+          <span class="service-pill">Transferencia</span>
+          <span class="service-pill">Domicilio</span>
+        </div>
+      </div>
+      <div class="punto-card">
+        <span class="punto-tag">Canal B2B</span>
+        <h3>Mayoreo / Reventa</h3>
+        <p class="address">Pedidos mínimos por volumen<br>Precios especiales de distribuidor</p>
+        <div class="punto-services">
+          <span class="service-pill">Factura</span>
+          <span class="service-pill">Crédito</span>
+          <span class="service-pill">Entrega Programada</span>
+        </div>
+      </div>
+      <div class="punto-card">
+        <span class="punto-tag">Próximamente</span>
+        <h3>Monterrey</h3>
+        <p class="address">Nueva sucursal en apertura<br>Norte del país · 2025</p>
+        <div class="punto-services">
+          <span class="service-pill">En desarrollo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section class="section-productos" id="productos">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow" style="color: var(--oro);">Catálogo selecto</span>
+      <h2 class="section-title">Productos <em>auténticos</em></h2>
+      <p class="section-desc">Ingredientes tradicionales, productos frescos y servicios de confianza. Directo de Oaxaca a tu mesa.</p>
+    </div>
+    <div class="productos-grid">
+      <div class="producto-card">
+        <div class="producto-img">🌽</div>
+        <div class="producto-info">
+          <p class="producto-cat">Básicos</p>
+          <h3 class="producto-name">Tortillería Artesanal</h3>
+          <p class="producto-desc">Tlayudas, tortillas de maíz criollo y tostadas oaxaqueñas.</p>
+        </div>
+        <span class="producto-badge">Popular</span>
+      </div>
+      <div class="producto-card">
+        <div class="producto-img">🧀</div>
+        <div class="producto-info">
+          <p class="producto-cat">Lácteos</p>
+          <h3 class="producto-name">Quesos y Crema</h3>
+          <p class="producto-desc">Queso Oaxaca, quesillo fresco, crema y requesón artesanal.</p>
+        </div>
+      </div>
+      <div class="producto-card">
+        <div class="producto-img">🌶️</div>
+        <div class="producto-info">
+          <p class="producto-cat">Condimentos</p>
+          <h3 class="producto-name">Chiles y Especias</h3>
+          <p class="producto-desc">Pasilla negro, mulato, ancho y mezclas de mole tradicional.</p>
+        </div>
+        <span class="producto-badge">Exclusivo</span>
+      </div>
+      <div class="producto-card">
+        <div class="producto-img">🥩</div>
+        <div class="producto-info">
+          <p class="producto-cat">Carnes</p>
+          <h3 class="producto-name">Carnes Frescas</h3>
+          <p class="producto-desc">Tasajo, cecina enchilada y chorizo negro oaxaqueño.</p>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top: 40px;">
+      <a href="#como-comprar" class="btn-primary">Ver Catálogo Completo</a>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO COMPRAR -->
+<section class="section-como" id="como-comprar">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Múltiples canales</span>
+      <h2 class="section-title">¿Cómo quieres <em>comprar?</em></h2>
+    </div>
+    <div class="como-grid">
+      <div class="como-options">
+        <a href="#" class="como-option">
+          <span class="como-option-icon">🛍️</span>
+          <div>
+            <h4>En Sucursal</h4>
+            <p>Visítanos en cualquiera de nuestros puntos físicos. Stock disponible en el momento.</p>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+        <a href="#" class="como-option">
+          <span class="como-option-icon">💻</span>
+          <div>
+            <h4>Tienda en Línea</h4>
+            <p>Compra en nuestro Shopify con entrega a domicilio o pick-up en sucursal.</p>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+        <a href="https://wa.me/5215555555555" class="como-option">
+          <span class="como-option-icon">💬</span>
+          <div>
+            <h4>Por WhatsApp</h4>
+            <p>Mándanos tu pedido directo y te damos precio y disponibilidad al momento.</p>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+        <a href="#" class="como-option">
+          <span class="como-option-icon">📦</span>
+          <div>
+            <h4>Pedido Mayorista</h4>
+            <p>Para revendedores y negocios. Precios de distribuidor con factura.</p>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+      <div class="como-info">
+        <div class="como-info-box">
+          <h3>Llevamos <em>Oaxaca</em> hasta tu puerta</h3>
+          <p>Sin importar dónde estés, nuestra red de distribución conecta cada punto de venta para garantizarte disponibilidad, frescura y el sabor auténtico que buscas.</p>
+          <a href="#" class="btn-primary">Ir a la Tienda en Línea</a>
+          <br>
+          <a href="https://wa.me/5215555555555" class="whatsapp-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Escribir por WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAPA PUNTOS DE VENTA -->
+<section class="section-mapa">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Red de distribución</span>
+      <h2 class="section-title">Encuéntranos <em>cerca de ti</em></h2>
+    </div>
+    <div class="mapa-wrapper">
+      <div class="mapa-visual">
+        <div class="mapa-placeholder">
+          <span class="map-icon">🗺️</span>
+          <p>Mapa interactivo de puntos de venta</p>
+          <small>Integrar Google Maps API</small>
+        </div>
+      </div>
+      <div class="mapa-list">
+        <div class="mapa-item">
+          <div class="mapa-num">1</div>
+          <div>
+            <h4>CDMX – Centro</h4>
+            <p>Av. México 120, Col. Centro</p>
+            <p class="horario">⏰ Lun–Dom 9am–9pm</p>
+          </div>
+        </div>
+        <div class="mapa-item">
+          <div class="mapa-num">2</div>
+          <div>
+            <h4>Oaxaca – Centro Histórico</h4>
+            <p>Macedonio Alcalá 45</p>
+            <p class="horario">⏰ Lun–Sáb 8am–8pm</p>
+          </div>
+        </div>
+        <div class="mapa-item">
+          <div class="mapa-num">3</div>
+          <div>
+            <h4>Guadalajara</h4>
+            <p>Blvd. Tlaquepaque 890</p>
+            <p class="horario">⏰ Mar–Dom 9am–8pm</p>
+          </div>
+        </div>
+        <div class="mapa-item">
+          <div class="mapa-num" style="background:var(--verde)">🌐</div>
+          <div>
+            <h4>Tienda en Línea</h4>
+            <p>Envío a todo México</p>
+            <p class="horario">⏰ Disponible 24/7</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="section-cta" id="contacto">
+  <h2>¿Listo para <em>ordenar?</em></h2>
+  <p>Visítanos, escríbenos o entra a nuestra tienda en línea. El sabor auténtico de Oaxaca siempre disponible para ti.</p>
+  <div class="cta-btns">
+    <a href="#" class="btn-primary">Ir a la Tienda</a>
+    <a href="https://wa.me/5215555555555" class="btn-outline">Contactar por WhatsApp</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <p class="brand-name">La Oaxaqueña</p>
+      <span class="brand-tag">Distribuidora Auténtica</span>
+      <p>Productos mexicanos de calidad con presencia en múltiples ciudades. Tu sabor de casa, donde estés.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Navegación</h5>
+      <ul>
+        <li><a href="#distribucion">Distribución</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#puntos-venta">Puntos de Venta</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Comprar</h5>
+      <ul>
+        <li><a href="#">Tienda en Línea</a></li>
+        <li><a href="#">Mayoreo</a></li>
+        <li><a href="#">Revendedores</a></li>
+        <li><a href="#">Envíos</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contacto</h5>
+      <p>WhatsApp: +52 55 5555 5555</p>
+      <br>
+      <p>contacto@laoaxaquena.mx</p>
+      <br>
+      <p>Lun–Dom · 9am – 9pm</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 La Oaxaqueña Distribuidora. Todos los derechos reservados.</p>
+    <div class="netlify-badge">
+      <div class="netlify-dot"></div>
+      Desplegado en Netlify
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Animación suave al hacer scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.flujo-step, .punto-card, .producto-card, .como-option, .mapa-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+
+  // Contador animado en hero
+  function animateCounter(el, target) {
+    let count = 0;
+    const step = Math.ceil(target / 40);
+    const timer = setInterval(() => {
+      count = Math.min(count + step, target);
+      el.textContent = count + (el.dataset.suffix || '+');
+      if (count >= target) clearInterval(timer);
+    }, 30);
+  }
+
+  const statNums = document.querySelectorAll('.stat-num');
+  const statsObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const raw = e.target.textContent.replace('+','');
+        e.target.dataset.suffix = e.target.textContent.includes('+') ? '+' : '';
+        animateCounter(e.target, parseInt(raw));
+        statsObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  statNums.forEach(n => statsObs.observe(n));
+</script>
+
+</body>
+</html>
