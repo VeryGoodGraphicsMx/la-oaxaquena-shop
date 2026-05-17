@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>La Paisana | Productos auténticos de Oaxaca</title>
-<meta name="description" content="Compra productos auténticos de Oaxaca: mole, chocolate, café, tlayudas, salsas, quesillo y selección artesanal con envío a México." />
+<meta name="description" content="Productos auténticos de Oaxaca: mole, chocolate, café, tlayudas, salsas y canastas artesanales con envío a México." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -15,12 +15,12 @@
   --crema3:#D8C2A4;
   --cafe:#2C1E16;
   --cafe2:#4A3325;
-  --terracota:#B85C38;
-  --terracota2:#8C4020;
+  --terracota:#C7633F;
+  --terracota2:#9A4328;
   --maiz:#D9A441;
   --olivo:#5C6843;
   --blanco:#FFFDF8;
-  --negro:#17110D;
+  --negro:#130D09;
   --shadow:0 24px 70px rgba(44,30,22,.18);
 }
 
@@ -51,19 +51,21 @@ img{max-width:100%;display:block}
 .nav{
   position:fixed;
   top:0;left:0;right:0;
-  height:74px;
+  height:76px;
   z-index:100;
   display:flex;
   align-items:center;
+  background:rgba(19,13,9,.76);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(245,239,228,.1);
   transition:.25s ease;
 }
 .nav.scrolled{
-  background:rgba(245,239,228,.94);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(74,51,37,.12);
+  background:rgba(19,13,9,.94);
+  border-bottom:1px solid rgba(245,239,228,.14);
 }
 .nav-inner{
-  width:min(1180px,calc(100% - 48px));
+  width:min(1240px,calc(100% - 48px));
   margin:0 auto;
   display:flex;
   align-items:center;
@@ -75,42 +77,45 @@ img{max-width:100%;display:block}
   align-items:center;
   gap:12px;
   min-width:max-content;
+  color:var(--crema);
 }
-.brand img{width:46px;height:46px;object-fit:contain}
+.brand img{width:48px;height:48px;object-fit:contain;filter:drop-shadow(0 6px 16px rgba(0,0,0,.4))}
 .brand-title{
   font-family:'Cormorant Garamond',serif;
   font-weight:700;
-  font-size:24px;
-  line-height:.9;
+  font-size:28px;
+  line-height:.85;
+  letter-spacing:.04em;
+  text-transform:uppercase;
 }
 .brand-title span{
   display:block;
-  margin-top:6px;
+  margin-top:8px;
   font-family:'Montserrat',sans-serif;
   font-size:9px;
-  letter-spacing:.28em;
+  letter-spacing:.3em;
   text-transform:uppercase;
-  color:var(--terracota);
-  font-weight:700;
+  color:var(--maiz);
+  font-weight:800;
 }
-.nav-links{display:flex;align-items:center;gap:30px;list-style:none}
+.nav-links{display:flex;align-items:center;gap:34px;list-style:none;color:var(--crema)}
 .nav-links a{
   font-size:11px;
   text-transform:uppercase;
   letter-spacing:.18em;
-  font-weight:700;
-  opacity:.72;
+  font-weight:800;
+  opacity:.82;
 }
-.nav-links a:hover{opacity:1;color:var(--terracota)}
+.nav-links a:hover{opacity:1;color:var(--maiz)}
 .nav-actions{display:flex;align-items:center;gap:10px}
 .btn-nav{
   background:var(--terracota);
   color:var(--crema);
-  padding:12px 20px;
+  padding:14px 24px;
   font-size:11px;
   letter-spacing:.16em;
   text-transform:uppercase;
-  font-weight:800;
+  font-weight:900;
 }
 .btn-nav:hover{background:var(--terracota2)}
 
@@ -120,19 +125,19 @@ img{max-width:100%;display:block}
   align-items:center;
   justify-content:center;
   gap:10px;
-  min-height:50px;
-  padding:15px 28px;
+  min-height:56px;
+  padding:16px 32px;
   border:none;
   cursor:pointer;
   font-size:12px;
   letter-spacing:.14em;
   text-transform:uppercase;
-  font-weight:800;
+  font-weight:900;
   transition:.2s ease;
 }
 .btn-primary{background:var(--terracota);color:var(--crema)}
 .btn-primary:hover{background:var(--terracota2);transform:translateY(-2px)}
-.btn-secondary{background:transparent;border:1px solid rgba(245,239,228,.28);color:var(--crema)}
+.btn-secondary{background:rgba(19,13,9,.3);border:1px solid rgba(245,239,228,.32);color:var(--crema)}
 .btn-secondary:hover{border-color:var(--maiz);color:var(--maiz)}
 .btn-dark{background:var(--cafe);color:var(--crema)}
 .btn-dark:hover{background:var(--negro);transform:translateY(-2px)}
@@ -141,133 +146,114 @@ img{max-width:100%;display:block}
 .hero{
   min-height:100vh;
   position:relative;
-  background:
-    radial-gradient(circle at 78% 25%,rgba(217,164,65,.18),transparent 30%),
-    linear-gradient(115deg,var(--cafe) 0%,#20150F 56%,var(--terracota2) 100%);
   color:var(--crema);
   display:flex;
   align-items:center;
   overflow:hidden;
-  padding:112px 0 64px;
+  padding:112px 0 54px;
+  background:
+    linear-gradient(90deg,rgba(19,13,9,.84) 0%,rgba(19,13,9,.58) 42%,rgba(19,13,9,.18) 72%,rgba(19,13,9,.52) 100%),
+    radial-gradient(circle at 52% 40%,rgba(217,164,65,.14),transparent 28%),
+    url('media/hero-productos.jpg') center/cover no-repeat;
 }
 .hero::before{
   content:"";
   position:absolute;
-  right:-140px;top:-100px;
-  width:520px;height:520px;
-  border-radius:50%;
-  background:rgba(217,164,65,.12);
-  filter:blur(8px);
-}
-.hero::after{
-  content:"OAXACA";
-  position:absolute;
-  right:-20px;bottom:20px;
-  font-family:'Cormorant Garamond',serif;
-  font-size:180px;
-  line-height:1;
-  letter-spacing:-.04em;
-  font-weight:700;
-  color:rgba(245,239,228,.035);
+  inset:0;
+  background:
+    linear-gradient(180deg,rgba(19,13,9,.58) 0%,rgba(19,13,9,.1) 28%,rgba(19,13,9,.68) 100%),
+    radial-gradient(circle at 22% 46%,rgba(0,0,0,.16),transparent 30%);
   pointer-events:none;
 }
-.hero-grid{
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0 0;
+  height:180px;
+  background:linear-gradient(0deg,rgba(19,13,9,.88),transparent);
+  pointer-events:none;
+}
+.hero-inner{
   position:relative;
   z-index:2;
-  display:grid;
-  grid-template-columns:1.02fr .98fr;
-  gap:56px;
+  width:min(1180px,calc(100% - 48px));
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
   align-items:center;
+  text-align:center;
+  padding-top:20px;
 }
-.badge-line{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:24px;
-  padding:9px 13px;
-  background:rgba(245,239,228,.08);
-  border:1px solid rgba(245,239,228,.14);
-  color:var(--maiz);
-  font-size:10px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  font-weight:800;
+.hero-logo{
+  width:260px;
+  max-width:42vw;
+  margin:0 auto 24px;
+  filter:drop-shadow(0 18px 34px rgba(0,0,0,.62));
 }
-.badge-line::before{content:"";width:8px;height:8px;background:var(--maiz);border-radius:50%}
 .hero h1{
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(50px,7.2vw,102px);
-  line-height:.88;
+  font-size:clamp(54px,7vw,94px);
+  line-height:.92;
   letter-spacing:-.035em;
   font-weight:700;
-  max-width:720px;
-  margin-bottom:28px;
+  max-width:860px;
+  margin:0 auto 24px;
+  text-shadow:0 12px 34px rgba(0,0,0,.52);
 }
 .hero h1 em{font-style:italic;color:var(--maiz);font-weight:500}
 .hero-copy{
-  max-width:610px;
+  max-width:650px;
   font-size:18px;
-  line-height:1.75;
-  color:rgba(245,239,228,.78);
-  margin-bottom:34px;
+  line-height:1.68;
+  color:rgba(245,239,228,.88);
+  margin:0 auto 30px;
+  text-shadow:0 7px 24px rgba(0,0,0,.55);
 }
-.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:34px}
-.trust-row{display:flex;flex-wrap:wrap;gap:12px}
+.hero-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:18px;margin-bottom:42px}
+.trust-row{
+  width:min(760px,100%);
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:0;
+  margin-top:4px;
+  border-top:1px solid rgba(245,239,228,.16);
+  border-bottom:1px solid rgba(245,239,228,.16);
+  background:rgba(19,13,9,.22);
+  backdrop-filter:blur(6px);
+}
 .trust-pill{
-  display:inline-flex;
+  min-height:94px;
+  display:flex;
+  flex-direction:column;
   align-items:center;
-  gap:8px;
-  padding:9px 12px;
-  background:rgba(245,239,228,.075);
-  border:1px solid rgba(245,239,228,.11);
-  color:rgba(245,239,228,.76);
-  font-size:12px;
-  font-weight:600;
-}
-.trust-pill span{color:var(--maiz);font-weight:900}
-.hero-card{
-  position:relative;
-  min-height:560px;
-  border:1px solid rgba(245,239,228,.16);
-  box-shadow:0 30px 100px rgba(0,0,0,.3);
-  background:
-    linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.55)),
-    url('img/hero-productos.jpg') center/cover;
-  overflow:hidden;
-}
-.hero-card-fallback{
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at 30% 25%,#D9A441 0 10%,transparent 22%),
-    radial-gradient(circle at 75% 40%,#B85C38 0 12%,transparent 25%),
-    linear-gradient(135deg,#5A3020,#8C5A3C 42%,#D8C2A4);
-  opacity:.78;
-  z-index:-1;
-}
-.hero-card-content{
-  position:absolute;
-  left:28px;right:28px;bottom:28px;
-  background:rgba(44,30,22,.82);
-  backdrop-filter:blur(16px);
-  padding:28px;
-  border:1px solid rgba(245,239,228,.13);
-}
-.hero-card-kicker{
+  justify-content:center;
+  gap:10px;
+  padding:14px 12px;
+  border-right:1px solid rgba(245,239,228,.14);
+  color:rgba(245,239,228,.86);
   font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:.24em;
-  color:var(--maiz);
   font-weight:800;
-  margin-bottom:10px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  line-height:1.45;
 }
-.hero-card h3{
-  font-family:'Cormorant Garamond',serif;
-  font-size:34px;
-  line-height:1;
-  margin-bottom:12px;
+.trust-pill:last-child{border-right:none}
+.trust-pill span{
+  width:30px;height:30px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--maiz);
+  border:1px solid rgba(217,164,65,.4);
+  border-radius:50%;
+  font-size:15px;
+  font-weight:900;
 }
-.hero-card p{font-size:13px;line-height:1.7;color:rgba(245,239,228,.7)}
+.scroll-cue{
+  margin-top:28px;
+  color:rgba(245,239,228,.7);
+  font-size:20px;
+  animation:bounce 1.8s infinite;
+}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
 
 /* STRIP */
 .sales-strip{
@@ -283,7 +269,7 @@ img{max-width:100%;display:block}
 .strip-item{
   text-align:center;
   font-size:12px;
-  font-weight:800;
+  font-weight:900;
   letter-spacing:.12em;
   text-transform:uppercase;
 }
@@ -383,7 +369,7 @@ img{max-width:100%;display:block}
   box-shadow:var(--shadow);
 }
 .why-panel h2{font-family:'Cormorant Garamond',serif;font-size:58px;line-height:.95;margin-bottom:20px}
-.why-panel p{line-height:1.8;color:rgba(245,239,228,.8)}
+.why-panel p{line-height:1.8;color:rgba(245,239,228,.86)}
 .why-list{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .why-item{background:var(--blanco);padding:26px;border:1px solid rgba(74,51,37,.12)}
 .why-icon{width:42px;height:42px;border-radius:50%;background:var(--crema2);display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:var(--terracota);font-weight:900}
@@ -471,6 +457,7 @@ img{max-width:100%;display:block}
   font-weight:900;
   letter-spacing:.08em;
   text-transform:uppercase;
+  border-radius:12px;
 }
 .float-wa:hover{transform:translateY(-2px)}
 
@@ -479,14 +466,17 @@ img{max-width:100%;display:block}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
 @media(max-width:980px){
-  .container,.nav-inner{width:min(100% - 32px,1180px)}
+  .container,.nav-inner,.hero-inner{width:min(100% - 32px,1180px)}
+  .brand-title{font-size:22px}
   .nav-links{display:none}
-  .hero{padding-top:100px}
-  .hero-grid,.why-grid,.bundle-inner,.contact-grid{grid-template-columns:1fr}
-  .hero-card{min-height:430px}
+  .hero{padding-top:108px;background-position:center right}
+  .hero-logo{width:220px;max-width:58vw}
+  .hero h1{font-size:clamp(46px,10vw,72px)}
+  .trust-row{grid-template-columns:repeat(5,1fr)}
   .sales-strip-grid{grid-template-columns:1fr 1fr;gap:14px}
   .product-grid{grid-template-columns:1fr 1fr}
   .cat-grid,.steps,.testimonials-grid{grid-template-columns:1fr}
+  .why-grid,.bundle-inner,.contact-grid{grid-template-columns:1fr}
   .section-head{display:block}
   .section-copy{margin-top:18px}
   .why-list{grid-template-columns:1fr}
@@ -495,14 +485,19 @@ img{max-width:100%;display:block}
 }
 @media(max-width:620px){
   .nav{height:68px}
-  .brand-title{font-size:21px}
-  .brand img{width:40px;height:40px}
-  .btn-nav{display:none}
-  .hero h1{font-size:52px}
+  .brand-title{display:none}
+  .brand img{width:44px;height:44px}
+  .btn-nav{padding:12px 16px;font-size:10px}
+  .hero{min-height:94vh;background-position:center right;padding-top:92px}
+  .hero::before{background:linear-gradient(180deg,rgba(19,13,9,.72) 0%,rgba(19,13,9,.36) 42%,rgba(19,13,9,.82) 100%)}
+  .hero-logo{width:180px;margin-bottom:20px}
+  .hero h1{font-size:44px;line-height:.94}
   .hero-copy{font-size:15px}
   .hero-actions .btn{width:100%}
-  .hero-card{min-height:360px}
-  .hero-card-content{left:16px;right:16px;bottom:16px;padding:22px}
+  .trust-row{grid-template-columns:1fr 1fr;max-width:360px}
+  .trust-pill{min-height:76px;border-bottom:1px solid rgba(245,239,228,.12)}
+  .trust-pill:nth-child(2n){border-right:none}
+  .trust-pill:last-child{grid-column:1 / -1;border-bottom:none}
   .section{padding:74px 0}
   .product-grid{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
@@ -535,31 +530,27 @@ img{max-width:100%;display:block}
 </nav>
 
 <header class="hero" id="inicio">
-  <div class="container hero-grid">
-    <div class="hero-copy-area reveal">
-      <div class="badge-line">Selección artesanal oaxaqueña</div>
-      <h1>Productos auténticos de <em>Oaxaca</em>, listos para llegar a tu mesa.</h1>
-      <p class="hero-copy">Mole, chocolate, café, tlayudas, salsas y productos tradicionales seleccionados por su origen, sabor y calidad. Una forma más fácil, bonita y confiable de comprar Oaxaca desde casa.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#productos">Explorar productos</a>
-        <a class="btn btn-secondary" href="https://wa.me/525500000000?text=Hola%2C%20quiero%20ver%20el%20cat%C3%A1logo%20de%20La%20Paisana" target="_blank" rel="noopener">Pedir catálogo</a>
-      </div>
-      <div class="trust-row">
-        <div class="trust-pill"><span>✓</span> Envíos nacionales</div>
-        <div class="trust-pill"><span>✓</span> Compra por WhatsApp</div>
-        <div class="trust-pill"><span>✓</span> Productos seleccionados</div>
-        <div class="trust-pill"><span>✓</span> Origen oaxaqueño</div>
-      </div>
+  <div class="hero-inner reveal">
+    <img class="hero-logo" src="media/logo.png" alt="La Paisana" />
+
+    <h1>Productos auténticos de <em>Oaxaca</em>, listos para llegar a tu mesa.</h1>
+
+    <p class="hero-copy">Mole, chocolate, café, tlayudas, salsas y más. Seleccionamos lo mejor de nuestra tierra y lo llevamos hasta donde estés.</p>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#productos">Ver catálogo</a>
+      <a class="btn btn-secondary" href="https://wa.me/525500000000?text=Hola%2C%20quiero%20ver%20el%20cat%C3%A1logo%20de%20La%20Paisana" target="_blank" rel="noopener">Pedir por WhatsApp</a>
     </div>
 
-    <div class="hero-card reveal">
-      <div class="hero-card-fallback"></div>
-      <div class="hero-card-content">
-        <div class="hero-card-kicker">Más pedido</div>
-        <h3>Canasta Oaxaca</h3>
-        <p>Una selección especial para probar lo esencial: mole, chocolate, café, salsa y botanas artesanales.</p>
-      </div>
+    <div class="trust-row">
+      <div class="trust-pill"><span>⌂</span>Directo de Oaxaca</div>
+      <div class="trust-pill"><span>⌁</span>Productos artesanales</div>
+      <div class="trust-pill"><span>▣</span>Envíos a todo México</div>
+      <div class="trust-pill"><span>♢</span>Compra segura</div>
+      <div class="trust-pill"><span>✺</span>Calidad premium</div>
     </div>
+
+    <div class="scroll-cue">⌄</div>
   </div>
 </header>
 
@@ -584,7 +575,7 @@ img{max-width:100%;display:block}
 
     <div class="product-grid">
       <article class="product-card reveal">
-        <div class="product-img"><img src="img/producto-01.jpg" alt="Mole negro oaxaqueño"><span class="product-tag">Favorito</span></div>
+        <div class="product-img"><img src="media/producto-01.jpg" alt="Mole negro oaxaqueño"><span class="product-tag">Favorito</span></div>
         <div class="product-body">
           <p class="product-cat">Moles y salsas</p>
           <h3 class="product-name">Mole negro oaxaqueño</h3>
@@ -594,7 +585,7 @@ img{max-width:100%;display:block}
       </article>
 
       <article class="product-card reveal">
-        <div class="product-img"><img src="img/producto-02.jpg" alt="Chocolate oaxaqueño"><span class="product-tag">Nuevo</span></div>
+        <div class="product-img"><img src="media/producto-02.jpg" alt="Chocolate oaxaqueño"><span class="product-tag">Nuevo</span></div>
         <div class="product-body">
           <p class="product-cat">Chocolate</p>
           <h3 class="product-name">Chocolate de mesa</h3>
@@ -604,7 +595,7 @@ img{max-width:100%;display:block}
       </article>
 
       <article class="product-card reveal">
-        <div class="product-img"><img src="img/producto-03.jpg" alt="Café de Oaxaca"><span class="product-tag">Origen</span></div>
+        <div class="product-img"><img src="media/producto-03.jpg" alt="Café de Oaxaca"><span class="product-tag">Origen</span></div>
         <div class="product-body">
           <p class="product-cat">Café</p>
           <h3 class="product-name">Café de Oaxaca</h3>
@@ -614,7 +605,7 @@ img{max-width:100%;display:block}
       </article>
 
       <article class="product-card reveal">
-        <div class="product-img"><img src="img/producto-04.jpg" alt="Tlayudas oaxaqueñas"><span class="product-tag">Tradición</span></div>
+        <div class="product-img"><img src="media/producto-04.jpg" alt="Tlayudas oaxaqueñas"><span class="product-tag">Tradición</span></div>
         <div class="product-body">
           <p class="product-cat">Maíz</p>
           <h3 class="product-name">Tlayudas artesanales</h3>
